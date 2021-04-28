@@ -3,6 +3,15 @@
   <header class="page-header">
     <h1>My Cart</h1>
   </header>
+  <% if enhanced_cart.length == 0 %>
+  <% flash[:notice] = "There's currently nothing in the cart :(" %>
+  <div class="alert alert-info">
+  <p><%= notice %></p>
+
+    <%= link_to 'Return to home page', :root %>
+  </div>
+<%else %>
+
 
   <div class="panel panel-default items">
     <table class="table table-bordered">
@@ -25,7 +34,7 @@
             TOTAL:
           </th>
           <th>
-            <%= cart_subtotal_cents / 100.0 %>
+            <%= humanized_money_with_symbol cart_subtotal_cents / 100.0 %>
           </th>
         </tr>
       </tfoot>
@@ -50,3 +59,4 @@
   </div>
 
 </section>
+<%end%>

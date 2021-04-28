@@ -1,3 +1,4 @@
+
 class OrdersController < ApplicationController
 
   def show
@@ -49,7 +50,7 @@ class OrdersController < ApplicationController
         product: product,
         quantity: quantity,
         item_price: product.price,
-        total_price: product.price * quantity
+        total_price: number_with_precision(product.price * quantity, precision: 2)
       )
     end
     order.save!
