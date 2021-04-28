@@ -50,7 +50,7 @@ class OrdersController < ApplicationController
         product: product,
         quantity: quantity,
         item_price: product.price,
-        total_price: number_with_precision(product.price * quantity, precision: 2)
+        total_price: product.price * quantity,
       )
     end
     order.save!
