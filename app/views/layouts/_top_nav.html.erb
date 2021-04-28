@@ -15,7 +15,7 @@
           <%= link_to 'Home', :root %>
         </li>
         <li>
-        <%= link_to 'About Us', 'about' %>
+        <%= link_to 'About Us', :about_index %>
         </li>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
@@ -47,12 +47,12 @@
             <%= fa_icon "shopping-cart" %> My Cart (<%= cart.size %>)
           <% end %>
         </li>
-        <li>
+        <span class="navbar-text">
           <% if current_user %>Signed in as <%= current_user.name %> | <%= link_to "Logout", '/logout', data: { turbolinks: false } %>
          <% else %>
          <%= link_to 'Login', '/login' %> | <%= link_to 'Signup', '/signup' %>
         <% end %>
-        </li>
+      </span>
       </ul>
     </div>
   </div>
