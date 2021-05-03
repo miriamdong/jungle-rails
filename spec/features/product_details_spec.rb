@@ -7,8 +7,8 @@ RSpec.feature "Visitor navigates from home page to the product detail page by cl
 
     1.times do |n|
       @category.products.create!(
-        name:  Faker::Hipster.sentence(3),
-        description: Faker::Hipster.paragraph(4),
+        name:  Faker::Hipster.sentence(word_count:3),
+        description: Faker::Hipster.paragraph(sentence_count: 4),
         image: open_asset('apparel1.jpg'),
         quantity: 10,
         price: 64.99

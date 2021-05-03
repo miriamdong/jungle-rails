@@ -52,31 +52,31 @@ describe '.authenticate_with_credentials' do
     it 'returns user with right info' do
       @user = User.new(:name => 'name', :password=> 'password1', :password_confirmation => 'password1', :email => 'user@email.com')
       @user.save!
-      expect(@user.authenticate_with_credentials('user@email.com', 'password1')).to be_truthy
+      expect(User.authenticate_with_credentials('user@email.com', 'password1')).to be_truthy
     end
 
     it 'checks for right email' do
       @user = User.new(:name => 'name', :password=> 'password1', :password_confirmation => 'password1', :email => 'user@email.com')
       @user.save!
-      expect(@user.authenticate_with_credentials('wrong@email.com', 'password1')).to be_nil
+      expect(User.authenticate_with_credentials('wrong@email.com', 'password1')).to be_nil
     end
 
     it 'email is not case sensitive' do
       @user = User.new(:name => 'name', :password=> 'password1', :password_confirmation => 'password1', :email => 'user@email.com')
       @user.save!
-      expect(@user.authenticate_with_credentials('USER@email.com', 'password1')).to be_truthy
+      expect(User.authenticate_with_credentials('USER@email.com', 'password1')).to be_truthy
     end
 
     it 'trailing and leading spaces email are valid' do
       @user = User.new(:name => 'name', :password=> 'password1', :password_confirmation => 'password1', :email => 'user@email.com')
       @user.save!
-      expect(@user.authenticate_with_credentials('  USER@email.com   ', 'password1')).to be_truthy
+      expect(User.authenticate_with_credentials('  USER@email.com   ', 'password1')).to be_truthy
     end
 
     it 'checks for right password' do
       @user = User.new(:name => 'name', :password=> 'password1', :password_confirmation => 'password1', :email => 'user@email.com')
       @user.save!
-      expect(@user.authenticate_with_credentials('user@email.com', 'Wrongpassword1')).to be_nil
+      expect(User.authenticate_with_credentials('user@email.com', 'Wrongpassword1')).to be_nil
     end
   end
 
