@@ -55,3 +55,22 @@ bower.json
 
 # Ignore Byebug command history file.
 .byebug_history
+
+
+[user]
+        email = your@email.com
+        name = Your Name
+[core]
+        editor = vim
+[alias]
+        a = add .
+        c = commit -m
+        m = merge
+        d = diff
+        br = branch
+        co = checkout
+        st = status
+        cob = checkout -b
+        pom = push origin master
+        phm = push heroku master
+        pul = pull origin master
